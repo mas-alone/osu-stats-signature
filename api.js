@@ -32,7 +32,7 @@ export const getUser = async (username, playmode = 'std', includeTopPlays = fals
 			}
 		}
 		return {
-			错误: `可能被办了`
+			error: `Unknown Error`
 		}
 	}
 	
