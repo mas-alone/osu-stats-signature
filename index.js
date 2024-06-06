@@ -4,8 +4,6 @@ import NodeCache from 'node-cache';
 import * as libs from './libs.js';
 import * as render from './render.js';
 import * as api from './api.js';
-import https from 'https';
-import fs from 'fs';
 
 const cacheControl = new NodeCache({ stdTTL: 600, checkperiod: 600, deleteOnExpire: true });
 const app = express();
@@ -146,9 +144,3 @@ app.get('/skills', async function (req, res) {
 });
 
 app.listen(process.env.PORT || 3000);
-const options = {
-    key: fs.readFileSync('urkey.pem'),
-    cert: fs.readFileSync('urcert.pem')
-};
-
-https.createServer(options, app).listen(443);
